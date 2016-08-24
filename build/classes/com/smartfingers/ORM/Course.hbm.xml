@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.smartfingers.model.Course" table="course">
+
+		<id name="id" type="java.lang.Integer" column="id">
+		<generator class="identity" />
+		</id>
+ 
+		<property name="course_name" type="java.lang.String" column="course_name"  
+			length="45" />
+		
+		<property name="course_amount" type="java.lang.Integer" column="course_amount" not-null="true"
+			length="10" />
+ 
+		<property name="course_price" type="java.lang.Integer" column="course_price" not-null="true"
+			  />
+		
+		<property name="course_path" type="java.lang.String" column="course_path"  
+			length="300" />
+		<many-to-one name="teacher"
+		    			column="teacher_id"
+		    			class="com.smartfingers.model.User"
+		    			lazy="false"
+		    			not-null="true"/>
+		
+		
+	</class>
+</hibernate-mapping>
